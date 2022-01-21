@@ -3,6 +3,8 @@
     <p class="comment_name"><em><%= comment.name %></em></p>
     <p class="comment_body"><%= comment.body %></p>
     <p class="comment_tittle"><%= time_ago_in_words(comment.created_at) %> Ago</p>
-  </div>
-  <p><%= button_to "Delete", [comment.post, comment], method: :delete, class: "button", data: { confirm: "Are you sure?" } %></p>
+  </div>  
+  <% if user_signed_in? %>
+    <p><%= button_to "Delete", [comment.post, comment], method: :delete, class: "button", data: { confirm: "Are you sure?" } %></p>
+  <% end %> 
 </div>
